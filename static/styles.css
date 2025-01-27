@@ -1,0 +1,261 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #00ffaa #1a1a1a; /* Scrollbar color for Firefox */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #1a1a1a, #0f0f0f);
+    color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.container {
+    background: linear-gradient(145deg, #292929, #1f1f1f);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 255, 170, 0.3);
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    animation: fadeIn 0.6s ease-out;
+    overflow-y: auto; /* Ensures scrolling within the container if needed */
+    max-height: calc(100vh - 40px); /* Limits height to fit within viewport */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease;
+}
+
+.container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 25px 60px rgba(0, 255, 170, 0.5);
+}
+
+/* Navigation styles */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 255, 170, 0.1);
+}
+
+.nav-link {
+    color: #00ffaa;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: #00ffaa;
+    color: #0f0f0f;
+    box-shadow: 0 4px 10px rgba(0, 255, 170, 0.3);
+}
+
+/* Headings and text */
+h1 {
+    font-size: 2.8em;
+    color: #00ffaa;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h2, .question h3 {
+    color: #00ffaa;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+/* Quiz form styles */
+.quiz-form {
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quiz-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-option label {
+    order: 1;
+    flex: 1;
+}
+
+.quiz-option input[type="radio"] {
+    order: 2;
+    margin-left: 10px;
+}
+
+.quiz-title-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+
+/* Question box styling */
+.question {
+    background-color: #333;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 170, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.question:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 255, 170, 0.3);
+}
+
+.question input, .question select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #444;
+    color: #f1f1f1;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Button styles */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn {
+    background: linear-gradient(145deg, #00ffaa, #009977);
+    color: #0f0f0f;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 170, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(145deg, #009977, #00ffaa);
+    box-shadow: 0 8px 20px rgba(0, 255, 170, 0.4);
+}
+
+/* Results section styling */
+.results-container {
+    text-align: center;
+    padding: 25px;
+    background: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 170, 0.15);
+}
+
+.score {
+    font-size: 2.2em;
+    color: #00ffaa;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+/* Attempts table styling */
+.attempts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #222;
+    box-shadow: 0 4px 10px rgba(0, 255, 170, 0.1);
+}
+
+.attempts-table th,
+.attempts-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+    color: #f1f1f1;
+}
+
+.attempts-table th {
+    background-color: #333;
+    font-weight: 700;
+    color: #00ffaa;
+}
+
+.attempts-table tr:hover {
+    background-color: #2f2f2f;
+}
+
+/* Score circle */
+.score-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00ffaa, #009977);
+    color: #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    box-shadow: 0 8px 20px rgba(0, 255, 170, 0.3);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* Custom scrollbar styling */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #00ffaa;
+    border-radius: 10px;
+    border: 2px solid #1a1a1a; /* Padding around the thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #009977;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

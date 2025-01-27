@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Take Quiz</h1>
+        <div class="navigation">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('create_quiz') }}" class="nav-link">Create Quiz</a>
+            <a href="{{ url_for('quiz') }}" class="nav-link active">Take Quiz</a>
+            <a href="{{ url_for('result') }}" class="nav-link">Results</a>
+        </div>
+        
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% else %}
+            <h2>{{ quiz.title }}</h2>
+            <form id="quiz-form">
+                {% for index, question in enumerate(quiz['questions']) %}
+                    <div class="question">
+                        <h3>Question {{ index + 1 }}: {{ question['questionText'] }}</h3>
+                        {% for option_index, option in enumerate(question['options']) %}
+                            <div class="option">
+                                <input type="radio" 
+                                       id="q{{ index }}-opt{{ option_index }}"
+                                       name="question-{{ index }}" 
+                                       value="{{ option_index }}">
+                                <label for="q{{ index }}-opt{{ option_index }}">{{ option }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="button-group">
+                    <button type="button" class="btn" onclick="submitQuiz()">Submit Quiz</button>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

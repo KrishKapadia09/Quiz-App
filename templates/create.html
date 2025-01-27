@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Quiz</h1>
+        <div class="navigation">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('create_quiz') }}" class="nav-link active">Create Quiz</a>
+            <a href="{{ url_for('quiz') }}" class="nav-link">Take Quiz</a>
+            <a href="{{ url_for('result') }}" class="nav-link">Results</a>
+        </div>
+        
+        <div class="quiz-form">
+            <input type="text" id="quiz-title" placeholder="Enter Quiz Title" class="quiz-title-input">
+            <div id="questions-container"></div>
+            <div class="button-group">
+                <button onclick="addQuestion()" class="btn" id="add-question-btn">Add Question</button>
+                <button onclick="saveQuiz()" class="btn" id="create-quiz-btn">Create Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

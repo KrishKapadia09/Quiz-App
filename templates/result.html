@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Result</h1>
+        <div class="navigation">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('create_quiz') }}" class="nav-link">Create Quiz</a>
+            <a href="{{ url_for('quiz') }}" class="nav-link">Take Quiz</a>
+            <a href="{{ url_for('result') }}" class="nav-link active">Results</a>
+        </div>
+    <br><p id="score-display"></p>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const score = params.get('score');
+        const total = params.get('total');
+        document.getElementById('score-display').textContent = `You scored ${score} out of ${total}`;
+    </script>
+</body>
+</html>
